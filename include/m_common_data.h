@@ -159,6 +159,12 @@ typedef struct FamicomEmuCommonData {
     /* 0x24 */ s16 unk_24;
 }FamicomEmuCommonData; // size >= 0x26
 
+typedef struct CommonData_unk_100A0 {
+    /* 0x00 */ UNK_TYPE unk0;
+    /* 0x04 */ UNK_TYPE unk4;
+    /* 0x04 */ UNK_TYPE unk8;
+} CommonData_unk_100A0; // size >= 0x4
+
 typedef void (*CommonData_100E4_Func)(struct Game_Play*);
 
 typedef struct CommonData {
@@ -208,7 +214,9 @@ typedef struct CommonData {
     /* 0x10078 */ CommonData_unk_10078 *unk_10078;
     /* 0x1007C */ UNK_TYPE1 unk_1007C[0x1C];
     /* 0x10098 */ CommonData_unk_10098 *unk_10098;
-    /* 0x1009C */ UNK_TYPE1 unk_1009C[0x48];
+    /* 0x1009C */ UNK_TYPE1 unk_1009C[0x4];
+    /* 0x100A0 */ CommonData_unk_100A0* unk_100A0;
+    /* 0x100A4 */ UNK_TYPE1 unk_100A4[0x40];
     /* 0x100E4 */ CommonData_100E4_Func* unk_100E4;
     /* 0x100E8 */ u8 unk100E8[0x24];
     /* 0x1010C */ Time_c time;

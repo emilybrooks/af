@@ -28,9 +28,14 @@ typedef struct Game_Play_unk_0110_unk_0000 {
     /* 0x00 */ s16 unk_00;
     /* 0x02 */ UNK_TYPE1 unk_02[0x2];
     /* 0x04 */ void* segment;
-    /* 0x08 */ UNK_TYPE1 unk_08[0x48];
+    /* 0x08 */ UNK_TYPE1 unk_08[0x4];
+    /* 0x0C */ UNK_TYPE unk_0C;
+    /* 0x10 */ UNK_TYPE unk_10; //type RomOffset?
+    /* 0x14 */ UNK_TYPE unk_14;
+    /* 0x18 */ UNK_TYPE1 unk_18[0x38];
     /* 0x50 */ s16 unk_50;
-    /* 0x52 */ UNK_TYPE1 unk_52[0x2];
+    /* 0x52 */ UNK_TYPE1 unk_52;
+    /* 0x53 */ UNK_TYPE1 unk_53;
 } Game_Play_unk_0110_unk_0000; // size = 0x54
 
 typedef struct Game_Play_unk_0110 {
