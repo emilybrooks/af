@@ -40,7 +40,7 @@ ActorProfile Tools_Profile = {
 //   aTOL_init_clip_area
 //   aTOL_free_clip_area
 
-extern UNK_PTR* B_80965C20_jp;
+extern CommonData_unk_100A0 B_80965C20_jp;
 
 void func_80965ACC_jp(Game_Play*);
 void func_80965B20_jp();
@@ -57,7 +57,7 @@ typedef struct unkStruct {
     /* 0x174 */ UNK_TYPE unk174;
     /* 0x178 */ UNK_TYPE1 unk178[0x44];
     /* 0x1BC */ UNK_TYPE unk1BC;
-} unkStruct; // size = >= 0x1C0
+} unkStruct; // size >= 0x1C0
 
 // #pragma GLOBAL_ASM("asm/jp/nonmatchings/overlays/actors/ovl_Tools/ac_tools/aTOL_actor_ct.s")
 void aTOL_actor_ct(Actor* thisx UNUSED, Game_Play* game_play UNUSED) {
@@ -160,8 +160,8 @@ unkStruct* func_8096595C_jp(s32 arg0, s32 arg1, Actor* arg2, Game_Play* game_pla
     s32 pad2 UNUSED;
 
     if (temp_v0 != -1) {
-        temp_v0_2 = (unkStruct*)Actor_info_make_child_actor(&game_play->actorInfo, arg2, game_play, D_80965B64_jp[arg0], 0.0f, 0.0f,
-                                                0.0f, 0, 0, 0, -1, 0, arg4, temp_v0);
+        temp_v0_2 = (unkStruct*)Actor_info_make_child_actor(&game_play->actorInfo, arg2, game_play, D_80965B64_jp[arg0],
+                                                            0.0f, 0.0f, 0.0f, 0, 0, 0, -1, 0, arg4, temp_v0);
         ret = temp_v0_2;
 
         if (temp_v0_2 != NULL) {
@@ -183,18 +183,16 @@ unkStruct* func_8096595C_jp(s32 arg0, s32 arg1, Actor* arg2, Game_Play* game_pla
 // aTOL_secure_pl_umbrella_bank_area
 #pragma GLOBAL_ASM("asm/jp/nonmatchings/overlays/actors/ovl_Tools/ac_tools/func_80965A70_jp.s")
 
+// #pragma GLOBAL_ASM("asm/jp/nonmatchings/overlays/actors/ovl_Tools/ac_tools/func_80965ACC_jp.s")
 // aTOL_init_clip_area
-#pragma GLOBAL_ASM("asm/jp/nonmatchings/overlays/actors/ovl_Tools/ac_tools/func_80965ACC_jp.s")
-// void func_80965ACC_jp(Game_Play* game_play UNUSED)
-// {
-//     if (common_data.unk_100A0 == NULL)
-//     {
-//         common_data.unk_100A0 = &B_80965C20_jp;
-//         B_80965C20_jp = &func_8096595C_jp;
-//         common_data.unk_100A0->unk4 = &func_80965A4C_jp;
-//         func_80965A70_jp();
-//     }
-// }
+void func_80965ACC_jp(Game_Play* game_play) {
+    if (common_data.unk_100A0 == NULL) {
+        common_data.unk_100A0 = &B_80965C20_jp;
+        common_data.unk_100A0->unk0 = &func_8096595C_jp;
+        common_data.unk_100A0->unk4 = &func_80965A4C_jp;
+        func_80965A70_jp(game_play);
+    }
+}
 
 // #pragma GLOBAL_ASM("asm/jp/nonmatchings/overlays/actors/ovl_Tools/ac_tools/func_80965B20_jp.s")
 // aTOL_free_clip_area
