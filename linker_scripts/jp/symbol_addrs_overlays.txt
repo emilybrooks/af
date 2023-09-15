@@ -8514,12 +8514,12 @@ B_809654F0_jp = 0x809654F0; //
 
 aTOL_actor_ct = 0x809657A0; // type:func
 aTOL_actor_dt = 0x809657C4; // type:func
-func_809657EC_jp = 0x809657EC; // type:func
-func_8096595C_jp = 0x8096595C; // type:func
-func_80965A4C_jp = 0x80965A4C; // type:func
-func_80965A70_jp = 0x80965A70; // type:func
-func_80965ACC_jp = 0x80965ACC; // type:func
-func_80965B20_jp = 0x80965B20; // type:func
+aTOL_check_data_bank = 0x809657EC; // type:func
+aTOL_birth_proc = 0x8096595C; // type:func
+aTOL_chg_request_mode_proc = 0x80965A4C; // type:func
+aTOL_secure_pl_umbrella_bank_area = 0x80965A70; // type:func
+aTOL_init_clip_area = 0x80965ACC; // type:func
+aTOL_free_clip_area = 0x80965B20; // type:func
 
 // .data
 

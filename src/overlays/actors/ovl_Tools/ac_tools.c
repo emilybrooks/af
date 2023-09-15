@@ -43,11 +43,11 @@ ActorProfile Tools_Profile = {
 
 extern CommonData_unk_100A0 B_80965C20_jp;
 
-void func_80965ACC_jp(Game_Play*);
-void func_80965B20_jp();
-void func_80965A70_jp();
-extern UNK_TYPE func_80965A4C_jp;
-s32 func_809657EC_jp(Game_Play_unk_0110* objectExchangeBank, s32 arg1, Actor* arg2, s16 arg3);
+void aTOL_init_clip_area(Game_Play*);
+void aTOL_free_clip_area();
+void aTOL_secure_pl_umbrella_bank_area();
+extern UNK_TYPE aTOL_chg_request_mode_proc; //todo remove
+s32 aTOL_check_data_bank(Game_Play_unk_0110* objectExchangeBank, s32 arg1, Actor* arg2, s16 arg3);
 
 extern s16 D_80965B64_jp[]; // profile_table
 extern s16 D_80965BBC_jp[]; // objectTable
@@ -62,17 +62,16 @@ typedef struct unkStruct {
 
 // #pragma GLOBAL_ASM("asm/jp/nonmatchings/overlays/actors/ovl_Tools/ac_tools/aTOL_actor_ct.s")
 void aTOL_actor_ct(Actor* thisx UNUSED, Game_Play* game_play UNUSED) {
-    func_80965ACC_jp(game_play);
+    aTOL_init_clip_area(game_play);
 }
 
 // #pragma GLOBAL_ASM("asm/jp/nonmatchings/overlays/actors/ovl_Tools/ac_tools/aTOL_actor_dt.s")
 void aTOL_actor_dt(Actor* thisx UNUSED, Game_Play* game_play UNUSED) {
-    func_80965B20_jp();
+    aTOL_free_clip_area();
 }
 
-#pragma GLOBAL_ASM("asm/jp/nonmatchings/overlays/actors/ovl_Tools/ac_tools/func_809657EC_jp.s")
-// aTOL_check_data_bank
-// s32 func_809657EC_jp(Game_Play_unk_0110* objectExchangeBank, s32 arg1, Actor* actor, s16 objectIndex) {
+#pragma GLOBAL_ASM("asm/jp/nonmatchings/overlays/actors/ovl_Tools/ac_tools/aTOL_check_data_bank.s")
+// s32 aTOL_check_data_bank(Game_Play_unk_0110* objectExchangeBank, s32 arg1, Actor* actor, s16 objectIndex) {
 //     //  s32 sp34;
 //     // Game_Play_unk_0110_unk_0000 *sp30;
 //     //  u32 sp28;
@@ -138,13 +137,12 @@ void aTOL_actor_dt(Actor* thisx UNUSED, Game_Play* game_play UNUSED) {
 //     return ret;
 // }
 
-// #pragma GLOBAL_ASM("asm/jp/nonmatchings/overlays/actors/ovl_Tools/ac_tools/func_8096595C_jp.s")
-// aTOL_birth_proc
-unkStruct* func_8096595C_jp(s32 arg0, s32 arg1, Actor* arg2, Game_Play* game_play, s16 arg4, s32* arg5) {
+// #pragma GLOBAL_ASM("asm/jp/nonmatchings/overlays/actors/ovl_Tools/ac_tools/aTOL_birth_proc.s")
+unkStruct* aTOL_birth_proc(s32 arg0, s32 arg1, Actor* arg2, Game_Play* game_play, s16 arg4, s32* arg5) {
     s32 pad[2] UNUSED;
     unkStruct* temp_v0_2;
     unkStruct* ret = NULL;
-    s32 temp_v0 = func_809657EC_jp(&game_play->unk_0110, arg0, arg2, D_80965BBC_jp[arg0]);
+    s32 temp_v0 = aTOL_check_data_bank(&game_play->unk_0110, arg0, arg2, D_80965BBC_jp[arg0]);
     s32 pad2 UNUSED;
 
     if (temp_v0 != -1) {
@@ -165,12 +163,19 @@ unkStruct* func_8096595C_jp(s32 arg0, s32 arg1, Actor* arg2, Game_Play* game_pla
     return ret;
 }
 
-// aTOL_chg_request_mode_proc
-#pragma GLOBAL_ASM("asm/jp/nonmatchings/overlays/actors/ovl_Tools/ac_tools/func_80965A4C_jp.s")
+#pragma GLOBAL_ASM("asm/jp/nonmatchings/overlays/actors/ovl_Tools/ac_tools/aTOL_chg_request_mode_proc.s")
+// ? aTOL_chg_request_mode_proc(s32 arg0, void *arg1, s32 arg2)
+// {
+//     if (arg0 != arg1->unk14C)
+//     {
+//         return 0;
+//     }
+//     arg1->unk1BC = arg2;
+//     return 1;
+// }
 
-// #pragma GLOBAL_ASM("asm/jp/nonmatchings/overlays/actors/ovl_Tools/ac_tools/func_80965A70_jp.s")
-// aTOL_secure_pl_umbrella_bank_area
-void func_80965A70_jp(Game_Play* game_play) {
+// #pragma GLOBAL_ASM("asm/jp/nonmatchings/overlays/actors/ovl_Tools/ac_tools/aTOL_secure_pl_umbrella_bank_area.s")
+void aTOL_secure_pl_umbrella_bank_area(Game_Play* game_play) {
     s32 pad UNUSED;
     s32 sp18 = game_play->unk_0110.num;
 
@@ -182,20 +187,18 @@ void func_80965A70_jp(Game_Play* game_play) {
     }
 }
 
-// #pragma GLOBAL_ASM("asm/jp/nonmatchings/overlays/actors/ovl_Tools/ac_tools/func_80965ACC_jp.s")
-// aTOL_init_clip_area
-void func_80965ACC_jp(Game_Play* game_play) {
+// #pragma GLOBAL_ASM("asm/jp/nonmatchings/overlays/actors/ovl_Tools/ac_tools/aTOL_init_clip_area.s")
+void aTOL_init_clip_area(Game_Play* game_play) {
     if (common_data.unk_100A0 == NULL) {
         common_data.unk_100A0 = &B_80965C20_jp;
-        common_data.unk_100A0->aTOL_birth_proc = &func_8096595C_jp;
-        common_data.unk_100A0->unk4 = &func_80965A4C_jp;
-        func_80965A70_jp(game_play);
+        common_data.unk_100A0->aTOL_birth_proc = &aTOL_birth_proc;
+        common_data.unk_100A0->unk4 = &aTOL_chg_request_mode_proc;
+        aTOL_secure_pl_umbrella_bank_area(game_play);
     }
 }
 
-// #pragma GLOBAL_ASM("asm/jp/nonmatchings/overlays/actors/ovl_Tools/ac_tools/func_80965B20_jp.s")
-// aTOL_free_clip_area
-void func_80965B20_jp(void) {
+// #pragma GLOBAL_ASM("asm/jp/nonmatchings/overlays/actors/ovl_Tools/ac_tools/aTOL_free_clip_area.s")
+void aTOL_free_clip_area(void) {
     if (common_data.unk_100A0) {
         common_data.unk_100A0 = NULL;
     }
