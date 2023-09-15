@@ -14,6 +14,7 @@
 #include "m_quest.h"
 #include "unk.h"
 #include "m_snowman.h"
+#include "overlays/actors/ovl_Tools/ac_tools.h"
 
 struct Actor;
 struct ActorOverlay;
@@ -159,13 +160,14 @@ typedef struct FamicomEmuCommonData {
     /* 0x24 */ s16 unk_24;
 }FamicomEmuCommonData; // size >= 0x26
 
-typedef UNK_RET (*toolBirthProc)(s32, s32, struct Actor*, struct Game_Play*, s16, s32*);
+typedef UNK_RET (*ToolBirthProc)(s32, s32, struct Actor*, struct Game_Play*, s16, s32*);
+typedef UNK_RET (*ToolChgRequestModeProc)(Actor*, unkStruct*, s32);
 
-typedef struct CommonData_unk_100A0 {
-    /* 0x00 */ toolBirthProc aTOL_birth_proc;
-    /* 0x04 */ UNK_TYPE unk4; //aTOL_chg_request_mode_proc
+typedef struct ToolClip {
+    /* 0x00 */ ToolBirthProc aTOL_birth_proc;
+    /* 0x04 */ ToolChgRequestModeProc aTOL_chg_request_mode_proc;
     /* 0x08 */ UNK_TYPE unk8;
-} CommonData_unk_100A0; // size >= 0xC
+} ToolClip; // size >= 0xC
 
 typedef void (*CommonData_100E4_Func)(struct Game_Play*);
 
@@ -217,7 +219,7 @@ typedef struct CommonData {
     /* 0x1007C */ UNK_TYPE1 unk_1007C[0x1C];
     /* 0x10098 */ CommonData_unk_10098 *unk_10098;
     /* 0x1009C */ UNK_TYPE1 unk_1009C[0x4];
-    /* 0x100A0 */ CommonData_unk_100A0* unk_100A0;
+    /* 0x100A0 */ ToolClip* toolClip;
     /* 0x100A4 */ UNK_TYPE1 unk_100A4[0x40];
     /* 0x100E4 */ CommonData_100E4_Func* unk_100E4;
     /* 0x100E8 */ u8 unk100E8[0x24];

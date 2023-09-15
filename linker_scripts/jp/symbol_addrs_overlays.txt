@@ -8524,12 +8524,12 @@ aTOL_free_clip_area = 0x80965B20; // type:func
 // .data
 
 Tools_Profile = 0x80965B40; //
-D_80965B64_jp = 0x80965B64; // type:s16
-D_80965BBC_jp = 0x80965BBC; // type:s16
+profile_table = 0x80965B64; // type:s16
+objectTable = 0x80965BBC; // type:s16
 
 // .bss
 
-B_80965C20_jp = 0x80965C20; //
+aTOL_clip = 0x80965C20; //
 
 // .text
 
