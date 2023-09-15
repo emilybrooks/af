@@ -123,7 +123,7 @@ unkStruct* aTOL_birth_proc(s32 arg0, s32 arg1, Actor* arg2, Game_Play* game_play
         OBJECT_67, OBJECT_68, OBJECT_69,  OBJECT_70,  OBJECT_71,  OBJECT_45,  OBJECT_53,  OBJECT_53,  OBJECT_395,
         OBJECT_16, OBJECT_6,  OBJECT_371, OBJECT_370, OBJECT_391, OBJECT_391, OBJECT_391, OBJECT_391,
     };
-    s32 pad[2];
+    s32 pad[2] UNUSED;
     unkStruct* temp_v0_2;
     unkStruct* ret = NULL;
     s32 temp_v0 = aTOL_check_data_bank(&game_play->unk_0110, arg0, arg2, objectTable[arg0]);
@@ -147,7 +147,7 @@ unkStruct* aTOL_birth_proc(s32 arg0, s32 arg1, Actor* arg2, Game_Play* game_play
     return ret;
 }
 
-UNK_TYPE aTOL_chg_request_mode_proc(Actor* arg0, unkStruct* arg1, s32 arg2) {
+s32 aTOL_chg_request_mode_proc(Actor* arg0, unkStruct* arg1, s32 arg2) {
     if (arg0 != arg1->actor.parent) {
         return 0;
 
@@ -157,11 +157,11 @@ UNK_TYPE aTOL_chg_request_mode_proc(Actor* arg0, unkStruct* arg1, s32 arg2) {
     }
 }
 
-void aTOL_secure_pl_umbrella_bank_area(Game_Play* game_play) {
+void aTOL_secure_pl_umbrella_bank_area(Game_Play* game_play UNUSED) {
     s32 pad UNUSED;
     s32 sp18 = game_play->unk_0110.num;
 
-    if (func_800C5CC4_jp(&game_play->unk_0110, 0, 0xC00, game_play)) {
+    if (func_800C5CC4_jp(&game_play->unk_0110, 0, 0xC00)) {
         common_data.toolClip->unk8 = sp18;
 
     } else {
