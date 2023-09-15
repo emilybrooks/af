@@ -14,7 +14,7 @@ struct Game_Play_unk_0110_unk_0000;
 // void func_800C5B5C_jp();
 // void func_800C5B74_jp();
 // void func_800C5C30_jp();
-// void func_800C5CC4_jp();
+UNK_RET func_800C5CC4_jp(struct Game_Play_unk_0110_unk_0000*, UNK_TYPE, UNK_TYPE, struct Game_Play*);
 // void func_800C5D68_jp();
 // void func_800C5E10_jp();
 // void func_800C5EA0_jp();

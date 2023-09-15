@@ -159,11 +159,13 @@ typedef struct FamicomEmuCommonData {
     /* 0x24 */ s16 unk_24;
 }FamicomEmuCommonData; // size >= 0x26
 
+typedef UNK_RET (*aTOL_birth_proc)(s32, s32, struct Actor*, struct Game_Play*, s16, s32*);
+
 typedef struct CommonData_unk_100A0 {
-    /* 0x00 */ UNK_TYPE unk0; //aTOL_birth_proc
+    /* 0x00 */ aTOL_birth_proc aTOL_birth_proc;
     /* 0x04 */ UNK_TYPE unk4; //aTOL_chg_request_mode_proc
-    /* 0x04 */ UNK_TYPE unk8; //set inside aTOL_secure_pl_umbrella_bank_area
-} CommonData_unk_100A0; // size >= 0x4
+    /* 0x08 */ UNK_TYPE unk8;
+} CommonData_unk_100A0; // size >= 0xC
 
 typedef void (*CommonData_100E4_Func)(struct Game_Play*);
 

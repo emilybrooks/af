@@ -4,6 +4,7 @@
 #include "m_object.h"
 #include "overlays/gamestates/ovl_play/m_play.h"
 #include "m_common_data.h"
+#include "6E9650.h"
 
 void aTOL_actor_ct(Actor* thisx, Game_Play* game_play);
 void aTOL_actor_dt(Actor* thisx, Game_Play* game_play);
@@ -46,7 +47,7 @@ void func_80965ACC_jp(Game_Play*);
 void func_80965B20_jp();
 void func_80965A70_jp();
 extern UNK_TYPE func_80965A4C_jp;
-s32 func_809657EC_jp(Game_Play_unk_0110_unk_0000*, s32, Actor*, s16);
+s32 func_809657EC_jp(Game_Play_unk_0110* objectExchangeBank, s32 arg1, Actor* arg2, s16 arg3);
 
 extern s16 D_80965B64_jp[]; // profile_table
 extern s16 D_80965BBC_jp[]; // objectTable
@@ -71,80 +72,67 @@ void aTOL_actor_dt(Actor* thisx UNUSED, Game_Play* game_play UNUSED) {
 
 #pragma GLOBAL_ASM("asm/jp/nonmatchings/overlays/actors/ovl_Tools/ac_tools/func_809657EC_jp.s")
 // aTOL_check_data_bank
-//  s32 func_809657EC_jp(Game_Play_unk_0110_unk_0000 *arg0, s32 arg1, Actor *arg2, s16 arg3)
-//  {
-//      s32 sp34;
-//      // Game_Play_unk_0110_unk_0000 *sp30;
-//      u32 sp28;
-//      ObjectOverlay *sp18;
-//      Actor *temp_a0;
-//      Game_Play_unk_0110_unk_0000 *temp_v0;
-//      ObjectOverlay *temp_v1_2;
-//      // s16 temp_v1;
-//      s16 var_a0;
-//      // s16 var_a3;
-//      s32 temp_a1;
-//      s32 temp_v0_2;
-//      s32 ret; //var_t0
-//      u32 temp_a2;
+// s32 func_809657EC_jp(Game_Play_unk_0110* objectExchangeBank, s32 arg1, Actor* actor, s16 objectIndex) {
+//     //  s32 sp34;
+//     // Game_Play_unk_0110_unk_0000 *sp30;
+//     //  u32 sp28;
+//     //  Actor *temp_a0;
+//     //  ObjectOverlay *temp_v1_2;
+//     // s16 temp_v1;
+//     //  s16 var_a0;
+//     // s16 var_a3;
+//     s32 ret = -1; // var_t0
+//     s32 temp_v0_2;
+//     s32 temp_a1 = common_data.unk_100A0->unk8;
 
-//     // var_a3 = arg3;
-//     ret = -1;
-//     temp_a1 = common_data.unk_100A0->unk8;
-//     if ((arg2->part == 2) && (arg1 < 0x20) && (temp_a1 = common_data.unk_100A0->unk8, temp_a1 != -1))
-//     {
-//         temp_v0 = &arg0[temp_a1];
-//         if (temp_v0)
-//         {
-//         }
-//         // temp_v1 = temp_v0->unk_00;
-//         // var_a0 = -temp_v0->unk_00;
-//         // if (temp_v0->unk_00 >= 0)
+//     if ((actor->part == 2) && (arg1 < 0x20) && (temp_a1 = common_data.unk_100A0->unk8, temp_a1 != -1)) {
+//         Game_Play_unk_0110_unk_0000* objectStatus = &objectExchangeBank->unk_0000[temp_a1];
+//         s32 new_var;
+//         // if (objectStatus)
 //         // {
-//         //     var_a0 = temp_v0->unk_00;
 //         // }
-//         // var_a0 = ABS(temp_v0->unk_00);
-//         if (ABS(temp_v0->unk_00) != arg3)
-//         {
-//             temp_v1_2 = &gObjectTable[arg3];
-//             temp_a2 = temp_v1_2->vromEnd - temp_v1_2->vromStart;
-//             if (temp_a2 < 0xC01U)
-//             {
-//                 temp_a0 = arg2->child;
-//                 if ((temp_a0 != NULL) && (temp_a1 == temp_a0->unk_026))
-//                 {
-//                     // sp30 = temp_v0;
+//         // temp_v1 = objectStatus->unk_00;
+//         // var_a0 = ;
+//         if (objectStatus->unk_00 >= 0) {
+//             // objectStatus->unk_00 = -objectStatus->unk_00;
+//             new_var = -objectStatus->unk_00;
+//             objectStatus->unk_00 = new_var;
+//         }
+//         // var_a0 = ABS(objectStatus->unk_00);
+//         if (objectStatus->unk_00 != objectIndex) {
+//             // temp_v1_2 = &gObjectTable[objectIndex];
+//             u32 temp_a2 = gObjectTable[objectIndex].vromEnd - gObjectTable[objectIndex].vromStart;
+
+//             if (temp_a2 <= 0xC00) {
+//                 // temp_a0 = actor->child;
+//                 if ((actor->child != NULL) && (temp_a1 == actor->child->unk_026)) {
+//                     // sp30 = objectStatus;
 //                     // sp18 = temp_v1_2;
 //                     // sp28 = temp_a2;
-//                     // arg3 = arg3;
+//                     // objectIndex = objectIndex;
 //                     // sp34 = -1;
-//                     Actor_delete(temp_a0);
-//                     // var_a3 = arg3;
+//                     Actor_delete(actor->child);
+//                     // var_a3 = objectIndex;
 //                     ret = -1;
 //                 }
-//                 temp_v0->unk_00 = -arg3;
-//                 temp_v0->unk_10 = temp_a2;
-//                 temp_v0->unk_50 = 0;
-//                 temp_v0->unk_53 = 1;
-//                 temp_v0->unk_14 = 0;
-//                 temp_v0->unk_0C = temp_v1_2->vromStart;
+//                 objectStatus->unk_00 = -objectIndex;
+//                 objectStatus->unk_0C = gObjectTable[objectIndex].vromStart;
+//                 objectStatus->unk_10 = temp_a2;
+//                 objectStatus->unk_50 = 0;
+//                 objectStatus->unk_53 = 1;
+//                 objectStatus->unk_14 = 0;
 //             }
-//         }
-//         else
-//         {
+//         } else {
 //             ret = temp_a1;
 //         }
-//     }
-//     else
-//     {
+//     } else {
 //         // arg3 = var_a3;
-//         temp_v0_2 = mSc_bank_regist_check(arg0, arg3);
+//         temp_v0_2 = mSc_bank_regist_check(objectExchangeBank, objectIndex);
 //         ret = temp_v0_2;
-//         if (temp_v0_2 == -1)
-//         {
-//             sp34 = temp_v0_2;
-//             func_800C6144_jp(arg0, arg3);
-//             ret = sp34;
+//         if (temp_v0_2 == -1) {
+//             // sp34 = temp_v0_2;
+//             func_800C6144_jp(objectExchangeBank, objectIndex);
+//             ret = temp_v0_2;
 //         }
 //     }
 //     return ret;
@@ -180,15 +168,26 @@ unkStruct* func_8096595C_jp(s32 arg0, s32 arg1, Actor* arg2, Game_Play* game_pla
 // aTOL_chg_request_mode_proc
 #pragma GLOBAL_ASM("asm/jp/nonmatchings/overlays/actors/ovl_Tools/ac_tools/func_80965A4C_jp.s")
 
+// #pragma GLOBAL_ASM("asm/jp/nonmatchings/overlays/actors/ovl_Tools/ac_tools/func_80965A70_jp.s")
 // aTOL_secure_pl_umbrella_bank_area
-#pragma GLOBAL_ASM("asm/jp/nonmatchings/overlays/actors/ovl_Tools/ac_tools/func_80965A70_jp.s")
+void func_80965A70_jp(Game_Play* game_play) {
+    s32 pad UNUSED;
+    s32 sp18 = game_play->unk_0110.num;
+
+    if (func_800C5CC4_jp(&game_play->unk_0110, 0, 0xC00, game_play)) {
+        common_data.unk_100A0->unk8 = sp18;
+
+    } else {
+        common_data.unk_100A0->unk8 = -1;
+    }
+}
 
 // #pragma GLOBAL_ASM("asm/jp/nonmatchings/overlays/actors/ovl_Tools/ac_tools/func_80965ACC_jp.s")
 // aTOL_init_clip_area
 void func_80965ACC_jp(Game_Play* game_play) {
     if (common_data.unk_100A0 == NULL) {
         common_data.unk_100A0 = &B_80965C20_jp;
-        common_data.unk_100A0->unk0 = &func_8096595C_jp;
+        common_data.unk_100A0->aTOL_birth_proc = &func_8096595C_jp;
         common_data.unk_100A0->unk4 = &func_80965A4C_jp;
         func_80965A70_jp(game_play);
     }
