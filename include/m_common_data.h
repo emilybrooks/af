@@ -160,15 +160,6 @@ typedef struct FamicomEmuCommonData {
     /* 0x24 */ s16 unk_24;
 }FamicomEmuCommonData; // size >= 0x26
 
-typedef unkStruct* (*ToolBirthProc)(s32, s32, struct Actor*, struct Game_Play*, s16, s32*);
-typedef s32 (*ToolChgRequestModeProc)(Actor*, unkStruct*, s32);
-
-typedef struct ToolClip {
-    /* 0x00 */ ToolBirthProc aTOL_birth_proc;
-    /* 0x04 */ ToolChgRequestModeProc aTOL_chg_request_mode_proc;
-    /* 0x08 */ UNK_TYPE unk8;
-} ToolClip; // size >= 0xC
-
 typedef void (*CommonData_100E4_Func)(struct Game_Play*);
 
 typedef struct CommonData {
