@@ -47,19 +47,18 @@ typedef enum ToolName {
     /* 1D */ TOOL_UMBRELLA29,
     /* 1E */ TOOL_UMBRELLA30,
     /* 1F */ TOOL_UMBRELLA31,
-    /* 20 */ TOOL_UMBRELLA32,
-    /* 21 */ TOOL_KEITAI,
-    /* 22 */ TOOL_UTIWA,
-    /* 23 */ TOOL_HANABI,
-    /* 24 */ TOOL_CRACKER,
-    /* 25 */ TOOL_PISTOL,
-    /* 26 */ TOOL_FLAG,
-    /* 27 */ TOOL_TUMBLER,
-    /* 28 */ TOOL_NPC_SAO,
-    /* 29 */ TOOL_TAMA1,
-    /* 2A */ TOOL_TAMA2,
-    /* 2B */ TOOL_TAMA3,
-    /* 2C */ TOOL_TAMA4
+    /* 20 */ TOOL_KEITAI,
+    /* 21 */ TOOL_UTIWA,
+    /* 22 */ TOOL_HANABI,
+    /* 23 */ TOOL_CRACKER,
+    /* 24 */ TOOL_PISTOL,
+    /* 25 */ TOOL_FLAG,
+    /* 26 */ TOOL_TUMBLER,
+    /* 27 */ TOOL_NPC_SAO,
+    /* 28 */ TOOL_TAMA1,
+    /* 29 */ TOOL_TAMA2,
+    /* 2A */ TOOL_TAMA3,
+    /* 2B */ TOOL_TAMA4,
 } ToolName;
 
 typedef struct ToolActor {
@@ -75,7 +74,7 @@ typedef s32 (*ToolChgRequestModeProc)(Actor*, ToolActor*, s32);
 typedef struct ToolClip {
     /* 0x00 */ ToolBirthProc aTOL_birth_proc;
     /* 0x04 */ ToolChgRequestModeProc aTOL_chg_request_mode_proc;
-    /* 0x08 */ UNK_TYPE unk8; // umbrella exchange bank index?
+    /* 0x08 */ u32 umbrellaObjectBankIndex;
 } ToolClip; // size >= 0xC
 
 #endif

@@ -28,7 +28,7 @@ ToolClip aTOL_clip;
 void aTOL_init_clip_area(Game_Play* game_play);
 void aTOL_free_clip_area(void);
 void aTOL_secure_pl_umbrella_bank_area(Game_Play* game_play);
-s32 aTOL_check_data_bank(Game_Play_unk_0110* objectExchangeBank, s32 arg1, Actor* arg2, s16 arg3);
+s32 aTOL_check_data_bank(Game_Play_unk_0110* objectExchangeBank, ToolName toolName, ToolActor* toolActor, s16 arg3);
 
 void aTOL_actor_ct(Actor* thisx UNUSED, Game_Play* game_play) {
     aTOL_init_clip_area(game_play);
@@ -38,32 +38,32 @@ void aTOL_actor_dt(Actor* thisx UNUSED, Game_Play* game_play UNUSED) {
     aTOL_free_clip_area();
 }
 
-s32 aTOL_check_data_bank(Game_Play_unk_0110* objectExchangeBank, s32 arg1, Actor* actor, s16 objectIndex) {
+s32 aTOL_check_data_bank(Game_Play_unk_0110* objectExchangeBank, ToolName toolName, ToolActor* toolActor, s16 objectIndex) {
     s32 ret = -1;
 
-    if ((actor->part == 2) && (arg1 < 0x20) && (common_data.toolClip->unk8 != -1)) {
-        Game_Play_unk_0110_unk_0000* objectStatus = &objectExchangeBank->unk_0000[common_data.toolClip->unk8];
+    if ((toolActor->actor.part == ACTOR_PART_PLAYER) && (toolName <= TOOL_UMBRELLA31) && (common_data.toolClip->umbrellaObjectBankIndex != -1)) {
+        Game_Play_unk_0110_unk_0000* objectStatus = &objectExchangeBank->unk_0000[common_data.toolClip->umbrellaObjectBankIndex];
         Actor* temp_a0;
 
         if (((objectStatus->unk_00 >= 0) ? (objectStatus->unk_00) : (-objectStatus->unk_00)) != objectIndex) {
-            u32 temp_a2 = gObjectTable[objectIndex].vromEnd - gObjectTable[objectIndex].vromStart;
+            u32 objectSize = gObjectTable[objectIndex].vromEnd - gObjectTable[objectIndex].vromStart;
 
-            if (temp_a2 <= 0xC00) {
-                temp_a0 = actor->child;
+            if (objectSize <= 0xC00) {
+                temp_a0 = toolActor->actor.child;
 
-                if ((temp_a0 != NULL) && (temp_a0->unk_026 == common_data.toolClip->unk8)) {
+                if ((temp_a0 != NULL) && (temp_a0->unk_026 == common_data.toolClip->umbrellaObjectBankIndex)) {
                     Actor_delete(temp_a0);
                 }
 
                 objectStatus->unk_00 = -objectIndex;
                 objectStatus->unk_0C = gObjectTable[objectIndex].vromStart;
-                objectStatus->unk_10 = temp_a2;
+                objectStatus->unk_10 = objectSize;
                 objectStatus->unk_50 = 0;
                 objectStatus->unk_53 = 1;
                 objectStatus->unk_14 = 0;
             }
         } else {
-            ret = common_data.toolClip->unk8;
+            ret = common_data.toolClip->umbrellaObjectBankIndex;
         }
     } else {
         s32 temp_v0_2 = mSc_bank_regist_check(objectExchangeBank, objectIndex);
@@ -78,7 +78,7 @@ s32 aTOL_check_data_bank(Game_Play_unk_0110* objectExchangeBank, s32 arg1, Actor
     return ret;
 }
 
-ToolActor* aTOL_birth_proc(ToolName toolName, s32 arg1, ToolActor* toolActor, Game_Play* game_play, s16 arg4,
+ToolActor* aTOL_birth_proc(ToolName toolName, s32 arg1, ToolActor* toolActor, Game_Play* game_play, s16 params,
                            s32* arg5) {
     static s16 profile_table[] = {
         ACTOR_T_UMBRELLA, ACTOR_T_UMBRELLA, ACTOR_T_UMBRELLA, ACTOR_T_UMBRELLA, ACTOR_T_UMBRELLA, ACTOR_T_UMBRELLA,
@@ -99,12 +99,12 @@ ToolActor* aTOL_birth_proc(ToolName toolName, s32 arg1, ToolActor* toolActor, Ga
     };
     s32 pad[3] UNUSED;
     ToolActor* ret = NULL;
-    s32 temp_v0 = aTOL_check_data_bank(&game_play->unk_0110, toolName, &toolActor->actor, objectTable[toolName]);
+    s32 temp_v0 = aTOL_check_data_bank(&game_play->unk_0110, toolName, toolActor, objectTable[toolName]);
     s32 pad2 UNUSED;
 
     if (temp_v0 != -1) {
         ret = (ToolActor*)Actor_info_make_child_actor(&game_play->actorInfo, &toolActor->actor, game_play,
-                                                      profile_table[toolName], 0.0f, 0.0f, 0.0f, 0, 0, 0, -1, 0, arg4,
+                                                      profile_table[toolName], 0.0f, 0.0f, 0.0f, 0, 0, 0, -1, 0, params,
                                                       temp_v0);
         if (ret != NULL) {
             ret->unk1BC = arg1;
@@ -134,10 +134,10 @@ void aTOL_secure_pl_umbrella_bank_area(Game_Play* game_play) {
     s32 sp18 = game_play->unk_0110.num;
 
     if (mSc_secure_exchange_keep_bank(&game_play->unk_0110, 0, 0xC00)) {
-        common_data.toolClip->unk8 = sp18;
+        common_data.toolClip->umbrellaObjectBankIndex = sp18;
 
     } else {
-        common_data.toolClip->unk8 = -1;
+        common_data.toolClip->umbrellaObjectBankIndex = -1;
     }
 }
 
