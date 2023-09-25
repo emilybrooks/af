@@ -4,7 +4,7 @@
 #include "m_object.h"
 #include "overlays/gamestates/ovl_play/m_play.h"
 #include "m_common_data.h"
-#include "6E9650.h"
+#include "m_scene.h"
 
 void aTOL_actor_ct(Actor* thisx, Game_Play* game_play);
 void aTOL_actor_dt(Actor* thisx, Game_Play* game_play);
@@ -28,7 +28,7 @@ ToolClip aTOL_clip;
 void aTOL_init_clip_area(Game_Play* game_play);
 void aTOL_free_clip_area(void);
 void aTOL_secure_pl_umbrella_bank_area(Game_Play* game_play);
-s32 aTOL_check_data_bank(Game_Play_unk_0110* objectExchangeBank, ToolName toolName, ToolActor* toolActor, s16 arg3);
+s32 aTOL_check_data_bank(ObjectExchangeBank* objectExchangeBank, ToolName toolName, ToolActor* toolActor, s16 arg3);
 
 void aTOL_actor_ct(Actor* thisx UNUSED, Game_Play* game_play) {
     aTOL_init_clip_area(game_play);
@@ -38,14 +38,14 @@ void aTOL_actor_dt(Actor* thisx UNUSED, Game_Play* game_play UNUSED) {
     aTOL_free_clip_area();
 }
 
-s32 aTOL_check_data_bank(Game_Play_unk_0110* objectExchangeBank, ToolName toolName, ToolActor* toolActor, s16 objectIndex) {
+s32 aTOL_check_data_bank(ObjectExchangeBank* objectExchangeBank, ToolName toolName, ToolActor* toolActor, s16 objectIndex) {
     s32 ret = -1;
 
     if ((toolActor->actor.part == ACTOR_PART_PLAYER) && (toolName <= TOOL_UMBRELLA31) && (common_data.toolClip->umbrellaObjectBankIndex != -1)) {
-        Game_Play_unk_0110_unk_0000* objectStatus = &objectExchangeBank->unk_0000[common_data.toolClip->umbrellaObjectBankIndex];
+        ObjectStatus* objectStatus = &objectExchangeBank->status[common_data.toolClip->umbrellaObjectBankIndex];
         Actor* temp_a0;
 
-        if (((objectStatus->unk_00 >= 0) ? (objectStatus->unk_00) : (-objectStatus->unk_00)) != objectIndex) {
+        if (((objectStatus->id >= 0) ? (objectStatus->id) : (-objectStatus->id)) != objectIndex) {
             u32 objectSize = gObjectTable[objectIndex].vromEnd - gObjectTable[objectIndex].vromStart;
 
             if (objectSize <= 0xC00) {
@@ -55,12 +55,12 @@ s32 aTOL_check_data_bank(Game_Play_unk_0110* objectExchangeBank, ToolName toolNa
                     Actor_delete(temp_a0);
                 }
 
-                objectStatus->unk_00 = -objectIndex;
-                objectStatus->unk_0C = gObjectTable[objectIndex].vromStart;
-                objectStatus->unk_10 = objectSize;
-                objectStatus->unk_50 = 0;
-                objectStatus->unk_53 = 1;
-                objectStatus->unk_14 = 0;
+                objectStatus->id = -objectIndex;
+                objectStatus->vrom = gObjectTable[objectIndex].vromStart;
+                objectStatus->size = objectSize;
+                objectStatus->unk50 = 0;
+                objectStatus->unk53 = 1;
+                objectStatus->unk14 = 0;
             }
         } else {
             ret = common_data.toolClip->umbrellaObjectBankIndex;
@@ -99,7 +99,7 @@ ToolActor* aTOL_birth_proc(ToolName toolName, s32 arg1, ToolActor* toolActor, Ga
     };
     s32 pad[3] UNUSED;
     ToolActor* ret = NULL;
-    s32 temp_v0 = aTOL_check_data_bank(&game_play->unk_0110, toolName, toolActor, objectTable[toolName]);
+    s32 temp_v0 = aTOL_check_data_bank(&game_play->objectExchangeBank, toolName, toolActor, objectTable[toolName]);
     s32 pad2 UNUSED;
 
     if (temp_v0 != -1) {
@@ -131,9 +131,9 @@ s32 aTOL_chg_request_mode_proc(Actor* arg0, ToolActor* toolActor, s32 arg2) {
 
 void aTOL_secure_pl_umbrella_bank_area(Game_Play* game_play) {
     s32 pad UNUSED;
-    s32 sp18 = game_play->unk_0110.num;
+    s32 sp18 = game_play->objectExchangeBank.num;
 
-    if (mSc_secure_exchange_keep_bank(&game_play->unk_0110, 0, 0xC00)) {
+    if (mSc_secure_exchange_keep_bank(&game_play->objectExchangeBank, 0, 0xC00)) {
         common_data.toolClip->umbrellaObjectBankIndex = sp18;
 
     } else {

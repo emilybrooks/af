@@ -10,6 +10,7 @@
 #include "m_mail.h"
 #include "m_npc.h"
 #include "m_npc_walk.h"
+#include "m_npc_schedule.h"
 #include "m_private.h"
 #include "m_quest.h"
 #include "unk.h"
@@ -19,7 +20,7 @@
 struct Actor;
 struct ActorOverlay;
 struct struct_801161E8_jp;
-struct Game_Play_unk_0110_unk_0000;
+struct ObjectStatus;
 struct CommonData_unk_1004C_unk_14_arg0;
 struct Game_Play;
 struct struct_809AEFA4;
@@ -42,9 +43,9 @@ typedef UNK_RET (*CommonData_unk_1004C_unk_D0)(void);
 
 typedef UNK_RET (*CommonData_unk_1004C_unk_E4)(void);
 
-typedef UNK_RET (*CommonData_unk_1004C_unk_EC)(struct Game_Play_unk_0110_unk_0000*, s16, s16);
-typedef UNK_RET (*CommonData_unk_1004C_unk_F0)(struct Game_Play_unk_0110_unk_0000*, struct Actor*);
-typedef s32 (*CommonData_unk_1004C_unk_F4)(struct Game_Play_unk_0110_unk_0000*, struct Actor*);
+typedef UNK_RET (*CommonData_unk_1004C_unk_EC)(struct ObjectStatus*, s16, s16);
+typedef UNK_RET (*CommonData_unk_1004C_unk_F0)(struct ObjectStatus*, struct Actor*);
+typedef s32 (*CommonData_unk_1004C_unk_F4)(struct ObjectStatus*, struct Actor*);
 
 typedef UNK_RET (*CommonData_unk_1004C_unk_118)(struct Actor*);
 
@@ -122,42 +123,42 @@ typedef enum Season {
 
 typedef struct Time_c {
     /* 0x00 */ u32 season;
-    /* 0x04 */ u32 term_idx;
-    /* 0x08 */ s16 bgitem_profile;
-    /* 0x0A */ s16 bgitem_bank;
-    /* 0x0C */ s32 now_sec;
-    /* 0x10 */ lbRTC_time_c rtc_time;
-    /* 0x18 */ s16 rad_min; /* clock hand radial position for mins */
-    /* 0x1A */ s16 rad_hour; /* clock hand radial position for hours */
-    /* 0x1C */ u8 time_signal;
-    /* 0x1D */ u8 under_sec;
+    /* 0x04 */ u32 termIdx;
+    /* 0x08 */ s16 bgitemProfile;
+    /* 0x0A */ s16 bgitemBank;
+    /* 0x0C */ s32 nowSec;
+    /* 0x10 */ lbRTC_time_c rtcTime;
+    /* 0x18 */ s16 radMin;
+    /* 0x1A */ s16 radHour;
+    /* 0x1C */ u8 timeSignal;
+    /* 0x1D */ u8 underSec;
     /* 0x1E */ u8 disp;
-    /* 0x1F */ u8 rtc_crashed;
-    /* 0x20 */ s32 rtc_enabled;
-    /* 0x24 */ s32 add_sec;
-    /* 0x28 */ s32 add_idx;
+    /* 0x1F */ u8 rtcCrashed;
+    /* 0x20 */ s32 rtcEnabled;
+    /* 0x24 */ s32 addSec;
+    /* 0x28 */ s32 addIdx;
 } Time_c; // size = 0x2C
 
 typedef struct FamicomEmuCommonData {
-    /* 0x00 */ s16 unk_00;
-    /* 0x02 */ s16 unk_02;
-    /* 0x04 */ s16 unk_04;
-    /* 0x06 */ s16 unk_06;
-    /* 0x08 */ s16 unk_08;
-    /* 0x0A */ s16 unk_0A;
-    /* 0x0C */ s16 unk_0C;
-    /* 0x0E */ s16 unk_0E;
-    /* 0x10 */ s16 unk_10;
-    /* 0x12 */ s16 unk_12;
-    /* 0x14 */ s16 unk_14;
-    /* 0x16 */ s16 unk_16;
-    /* 0x18 */ s16 unk_18;
-    /* 0x1A */ s16 unk_1A;
-    /* 0x1C */ s16 unk_1C;
-    /* 0x1E */ s16 unk_1E;
-    /* 0x20 */ s16 unk_20;
-    /* 0x22 */ s16 unk_22;
-    /* 0x24 */ s16 unk_24;
+    /* 0x00 */ s16 unk00;
+    /* 0x02 */ s16 unk02;
+    /* 0x04 */ s16 unk04;
+    /* 0x06 */ s16 unk06;
+    /* 0x08 */ s16 unk08;
+    /* 0x0A */ s16 unk0A;
+    /* 0x0C */ s16 unk0C;
+    /* 0x0E */ s16 unk0E;
+    /* 0x10 */ s16 unk10;
+    /* 0x12 */ s16 unk12;
+    /* 0x14 */ s16 unk14;
+    /* 0x16 */ s16 unk16;
+    /* 0x18 */ s16 unk18;
+    /* 0x1A */ s16 unk1A;
+    /* 0x1C */ s16 unk1C;
+    /* 0x1E */ s16 unk1E;
+    /* 0x20 */ s16 unk20;
+    /* 0x22 */ s16 unk22;
+    /* 0x24 */ s16 unk24;
 }FamicomEmuCommonData; // size >= 0x26
 
 typedef void (*CommonData_100E4_Func)(struct Game_Play*);
@@ -165,7 +166,9 @@ typedef void (*CommonData_100E4_Func)(struct Game_Play*);
 typedef struct CommonData {
     /* 0x00000 */ u8 unk00000[0x14];
     /* 0x00014 */ s32 unk_00014;
-    /* 0x00018 */ u8 unk00018[0x8];
+    /* 0x00018 */ u8 nowNpcMax;
+    /* 0x00019 */ u8 removeAnimalIdx;
+    /* 0x0001A */ u8 unk1A[0x20 - 0x1A];
     /* 0x00020 */ Private_c private[PLAYER_NUM]; /* player data */
     /* 0x02F60 */ mLd_land_info_c land_info; /* town name & id */
     /* 0x02F6A */ u8 unk02F6A[0x61E];
@@ -226,7 +229,7 @@ typedef struct CommonData {
     /* 0x1014C */ UNK_TYPE1 unk_1014C[0x2];
     /* 0x1014E */ s16 unk_1014E;
     /* 0x10150 */ UNK_TYPE1 unk_10150[0x10];
-    /* 0x10160 */ mNpc_NpcList_c npclist[ANIMAL_NUM_MAX];
+    /* 0x10160 */ NpcList npclist[ANIMAL_NUM_MAX];
     /* 0x104A8 */ u16 house_owner_name;
     /* 0x104AA */ u16 last_field_id;
     /* 0x104AC */ UNK_TYPE1 unk_104AC[0x1];
@@ -235,11 +238,15 @@ typedef struct CommonData {
     /* 0x104B0 */ UNK_TYPE1 unk_104B0[0xE8];
     /* 0x10598 */ mQst_not_saved_c quest;
     /* 0x105A0 */ u32 scene_from_title_demo;
-    /* 0x105A4 */ UNK_TYPE1 unk_105A4[0xF0];
-    /* 0x10694 */ mNpc_walk_c npc_walk;
+    /* 0x105A4 */ NpsSchedule npcSchedule[ANIMAL_NUM_MAX];
+    /* 0x10694 */ NpcWalking npcWalk;
     /* 0x10710 */ UNK_TYPE1 unk_10710[0x3C];
     /* 0x1074C */ UNK_TYPE unk_1074C;
-    /* 0x10750 */ UNK_TYPE1 unk_10750[0x66];
+    /* 0x10750 */ UNK_TYPE1 unk_10750[0x4];
+    /* 0x10754 */ UNK_TYPE unk_10754;
+    /* 0x10758 */ UNK_TYPE1 unk_10758[0x48];
+    /* 0x107A0 */ UNK_TYPE unk_107A0;
+    /* 0x107A4 */ UNK_TYPE1 unk_107A4[0x12];
     /* 0x107B6 */ s16 unk_107B6; // named "demo_profile" in AC GCN decomp (though it's an array of two s16s in that game)
     /* 0x107B8 */ u8 unk107B8[0x28];
     /* 0x107E0 */ s8 player_decoy_flag;

@@ -24,33 +24,6 @@ typedef struct CommonData_unk_1004C_unk_14_arg0 {
     /* 0x04 */ UNK_TYPE1 unk_04[0x60];
 } CommonData_unk_1004C_unk_14_arg0; // size >= 0x64, maybe less, guessed from stack usage
 
-//object status
-typedef struct Game_Play_unk_0110_unk_0000 {
-    /* 0x00 */ s16 unk_00;
-    /* 0x02 */ UNK_TYPE1 unk_02[0x2];
-    /* 0x04 */ void* segment;
-    /* 0x08 */ UNK_TYPE1 unk_08[0x4];
-    /* 0x0C */ UNK_TYPE unk_0C;
-    /* 0x10 */ UNK_TYPE unk_10; //type RomOffset?
-    /* 0x14 */ UNK_TYPE unk_14;
-    /* 0x18 */ UNK_TYPE1 unk_18[0x38];
-    /* 0x50 */ s16 unk_50;
-    /* 0x52 */ UNK_TYPE1 unk_52;
-    /* 0x53 */ UNK_TYPE1 unk_53;
-} Game_Play_unk_0110_unk_0000; // size = 0x54
-
-#define OBJECT_EXCHANGE_BANK_MAX 73
-
-//object exchange bank
-typedef struct Game_Play_unk_0110 {
-    /* 0x0000 */ Game_Play_unk_0110_unk_0000 unk_0000[OBJECT_EXCHANGE_BANK_MAX];
-    /* 0x17F4 */ s32 num;
-    /* 0x17F8 */ UNK_TYPE unk17F8;
-    /* 0x17FC */ s32 unk_17FC;
-    /* 0x1800 */ UNK_TYPE1 unk_1800[0x18];
-    /* 0x1818 */ void* unk_1818;
-} Game_Play_unk_0110; // size >= 0x181C
-
 typedef struct ShadowData {
     /* 0x00 */ u32 numberOfVertices;
     /* 0x04 */ u8* vertexFixFlagTable;
