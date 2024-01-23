@@ -5129,15 +5129,47 @@
     #   - [0x1130000, data, assets/objects/object_01130000/object_01130000]
   - [0x1130400]
 
-  - name: object_01131000
-    type: bin # code
+  - name: hnw
+    dir: objects/hnw
+    type: code
     start: 0x1131000
     vram: 0x06000000
     exclusive_ram_id: segment_06
     compress: True
     align: 0x1000
-    # subsegments:
-    #   - [0x1131000, data, assets/objects/object_01131000/object_01131000]
+    symbol_name_format: $VRAM_$ROM
+    subsegments:
+      - [auto, c, hnw]
+      - start: 0x1131000
+        type: .data
+        name: hnw
+        subsegments:
+          - [0x1131000, vtx, hnw_v]
+          - [0x1132140, af_gfx, head_hnw_model]
+          - [0x11325B8, af_gfx, handR_hnw_model]
+          - [0x1132658, af_gfx, handL_hnw_model]
+          - [0x11326F8, af_gfx, body_hnw_model]
+          - [0x1132858, ckf_je, cKF_je_r_hnw_tbl]
+          - [0x11328AC, ckf_bs, cKF_bs_r_hnw]
+          - [0x11328B4]
+      - [auto, c, hnw_move]
+      - start: 0x11328C0
+        type: .data
+        name: hnw_move
+        subsegments:
+          - [0x11328C0, ckf_ckcb, cKF_ckcb_r_hnw_move_tbl]
+          - [0x11328C8, ckf_kn, cKF_kn_hnw_move_tbl]
+          - [0x11328D0, ckf_c, cKF_c_hnw_move_tbl]
+          - [0x11328F8, ckf_ds, cKF_ds_hnw_move_tbl]
+          - [0x11329B8, ckf_ba, cKF_ba_r_hnw_move]
+          - [0x11329CC]
+      - [auto, c, hnw_txt]
+      - start: 0x11329D0
+        type: .data
+        name: hnw_txt
+        subsegments:
+          - [0x11329D0, af_palette, hnw_face]
+          - [0x11329F0, af_ci4 , hnw_tmem_txt, 64, 64, 0x11329D0, 0x20]
   - [0x11331F0]
 
   - name: object_01134000

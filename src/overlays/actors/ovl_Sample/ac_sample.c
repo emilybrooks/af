@@ -5,19 +5,12 @@
 #include "69E2C0.h"
 #include "m_msg_main.h"
 #include "overlays/gamestates/ovl_play/m_play.h"
+#include "objects/hnw/hnw.h"
 
 void Ac_Sample_Actor_ct(Actor* thisx, Game_Play* play);
 void Ac_Sample_Actor_dt(Actor* thisx, Game_Play* play);
 void Ac_Sample_Actor_main(Actor* thisx, Game_Play* play);
 void Ac_Sample_Actor_draw(Actor* thisx, Game_Play* play);
-
-// TODO: extract assets
-
-extern BaseSkeletonR cKF_bs_r_hnw;
-extern BaseAnimationR cKF_ba_r_hnw_move;
-
-extern u8 hnw_tmem_txt[];
-extern u16 hnw_face[];
 
 ClObjPipe_Init Ac_Sample_OcInfoData_forStand = {
     { OC1_1 | OC1_TYPE_8 | OC1_TYPE_10 | OC1_TYPE_20, OC2_TYPE_20, COLSHAPE_PIPE },
@@ -223,7 +216,7 @@ ActorProfile Sample_Profile = {
     /* */ ACTOR_PART_4,
     /* */ 0,
     /* */ 0x9000,
-    /* */ OBJECT_12,
+    /* */ OBJECT_HNW,
     /* */ sizeof(Sample),
     /* */ Ac_Sample_Actor_ct,
     /* */ Ac_Sample_Actor_dt,
