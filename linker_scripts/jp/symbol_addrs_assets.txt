@@ -857,6 +857,10 @@ obj_s_buildsite_v = 0x60556A8; // segment:object_00D5E000 rom:0xDB36A8 size:0xC0
 reserve_DL_model = 0x6055768; // segment:object_00D5E000 rom:0xDB3768
 obj_s_buildsite_tex = 0x6055808; // segment:object_00D5E000 rom:0xDB3808
 
+obj_w_buildsite_v = 0x6055C18; // segment:object_00D5E000 rom:0xDB3C18 size:0xC0
+reserve_winter_DL_model = 0x6055CD8; // segment:object_00D5E000 rom:0xDB3CD8
+obj_w_buildsite_tex = 0x6055D78; // segment:object_00D5E000 rom:0xDB3D78
+
 obj_s_toudai_v = 0x0607D248; // segment:object_00D5E000 rom:0xDDB248 size:0x990
 obj_s_toudai_mirror_model = 0x0607DBD8; // segment:object_00D5E000 rom:0xDDBBD8
 obj_s_toudai_glass_model = 0x0607DCA0; // segment:object_00D5E000 rom:0xDDBCA0
