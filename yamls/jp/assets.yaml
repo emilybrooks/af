@@ -671,7 +671,7 @@
           - { start: 0xD5BF68, type: af_palette, name: reserve_winter_pal, global_id: reserve_winter_pal }
           - { start: 0xD5BF88, type: af_palette, name: obj_buggy_pal, global_id: obj_buggy_pal }
           - { start: 0xD5BFA8, type: af_palette, name: obj_buggy_winter_pal, global_id: obj_buggy_winter_pal }
-          - [0xD5BFC8]
+          - { start: 0xD5BFC8, type: af_palette, name: s_car_pal, global_id: s_car_pal }
           - { start: 0xD5BFE8, type: af_palette, name: obj_w_kamakura_pal, global_id: obj_w_kamakura_pal }
           - [0xD5C008]
           - { start: 0xD5C048, type: af_palette, name: obj_e_goza_pal, global_id: obj_e_goza_pal }
@@ -2057,8 +2057,23 @@
           - [0xDB3CD8, af_gfx, obj_w_buildsite/reserve_winter_DL_model]
           - [0xDB3D78, ci4, obj_w_buildsite/obj_w_buildsite_tex, 32, 64, reserve_winter_pal]
           - [0xDB4178]
+      - [auto, c, obj_s_car/obj_s_car]
+      - start: 0xDB4180
+        type: .data
+        name: obj_s_car/obj_s_car
+        subsegments:
           - [0xDB4180, pad]
-      - [0xDB4180, bin, 0D5E000_unextracted]
+          - [0xDB4188, vtx, obj_s_car/obj_s_car_v]
+          - [0xDB48A8, af_gfx, obj_s_car/obj_s_car_t1T_model]
+          - [0xDB49C0, af_gfx, obj_s_car/obj_s_car_t2T_model]
+          - [0xDB4A90, af_gfx, obj_s_car/obj_s_car_t3T_model]
+          - [0xDB4BC0, af_gfx, obj_s_car/s_car_DL_model]
+          - [0xDB4BE0, ci4, obj_s_car/obj_s_car_t1_tex, 128, 32, s_car_pal]
+          - [0xDB53E0, ci4, obj_s_car/obj_s_car_t2_tex, 128, 32, s_car_pal]
+          - [0xDB5BE0, ci4, obj_s_car/obj_s_car_t3_tex, 128, 32, s_car_pal]
+          - [0xDB63E0]
+          - [0xDB63F0, pad]
+      - [0xDB63F0, bin, 0D5E000_unextracted]
   - [0xDF3480]
 
   - name: object_00DF4000

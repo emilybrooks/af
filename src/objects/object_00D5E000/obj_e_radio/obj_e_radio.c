@@ -11,4 +11,4 @@ u8 obj_e_radio_t1_tex[] = {
 u8 obj_e_radio_t2_tex[] = {
 #include "assets/jp/objects/object_00D5E000//obj_e_radio/obj_e_radio_t2_tex.ci4.inc.c"
 };
-s32 padDB3690[] = { 0x00000000, 0x00000000, 0x00000000, 0x00000000 };
+s32 padDB3690[] = { 0x00000000, 0x00000000 };
