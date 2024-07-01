@@ -853,6 +853,10 @@ radio_DL_model = 0x6054678; // segment:object_00D5E000 rom:0xDB2678
 obj_e_radio_t1_tex = 0x6054690; // segment:object_00D5E000 rom:0xDB2690
 obj_e_radio_t2_tex = 0x6054E90; // segment:object_00D5E000 rom:0xDB2E90
 
+obj_s_buildsite_v = 0x60556A8; // segment:object_00D5E000 rom:0xDB36A8 size:0xC0
+reserve_DL_model = 0x6055768; // segment:object_00D5E000 rom:0xDB3768
+obj_s_buildsite_tex = 0x6055808; // segment:object_00D5E000 rom:0xDB3808
+
 obj_s_toudai_v = 0x0607D248; // segment:object_00D5E000 rom:0xDDB248 size:0x990
 obj_s_toudai_mirror_model = 0x0607DBD8; // segment:object_00D5E000 rom:0xDDBBD8
 obj_s_toudai_glass_model = 0x0607DCA0; // segment:object_00D5E000 rom:0xDDBCA0

@@ -72,7 +72,7 @@ u32 StructurePaletteAddresses[] = {
     0x06000FC8, //
     0x06000FE8, // obj_w_kamakura_pal
     0x06001048, // obj_e_goza_pal
-    0x06001068, //
+    0x06001068, // obj_e_radio_pal
     0x06001088, //
     0x060010A8, //
     0x060010A8, //

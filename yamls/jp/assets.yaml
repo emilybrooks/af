@@ -667,7 +667,9 @@
           - [0xD5BAC8]
           - { start: 0xD5BF08, type: af_palette, name: obj_police_box_pal, global_id: obj_police_box_pal }
           - { start: 0xD5BF28, type: af_palette, name: obj_police_box_winter_pal, global_id: obj_police_box_winter_pal }
-          - [0xD5BF48]
+          - { start: 0xD5BF48, type: af_palette, name: reserve_pal, global_id: reserve_pal }
+          # - { start: 0xD5BF68, type: af_palette, name: reserve_winter_pal, global_id: reserve_winter_pal }
+          - [0xD5BF68]
           - { start: 0xD5BF88, type: af_palette, name: obj_buggy_pal, global_id: obj_buggy_pal }
           - { start: 0xD5BFA8, type: af_palette, name: obj_buggy_winter_pal, global_id: obj_buggy_winter_pal }
           - [0xD5BFC8]
@@ -2036,7 +2038,18 @@
           - [0xDB2690, ci4, obj_e_radio/obj_e_radio_t1_tex, 128, 32, obj_e_radio_pal]
           - [0xDB2E90, ci4, obj_e_radio/obj_e_radio_t2_tex, 128, 32, obj_e_radio_pal]
           - [0xDB3690]
-      - [0xDB3690, bin, 0D5E000_unextracted]
+      - [auto, c, obj_s_buildsite/obj_s_buildsite]
+      - start: 0xDB36A0
+        type: .data
+        name: obj_s_buildsite/obj_s_buildsite
+        subsegments:
+          - [0xDB36A0, pad]
+          - [0xDB36A8, vtx, obj_s_buildsite/obj_s_buildsite_v]
+          - [0xDB3768, af_gfx, obj_s_buildsite/reserve_DL_model]
+          - [0xDB3808, ci4, obj_s_buildsite/obj_s_buildsite_tex, 32, 64, reserve_pal]
+          - [0xDB3C08]
+          - [0xDB3C10, pad]
+      - [0xDB3C10, bin, 0D5E000_unextracted]
   - [0xDF3480]
 
   - name: object_00DF4000

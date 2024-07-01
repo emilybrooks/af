@@ -24,14 +24,14 @@ u32 StructureObjectAddresses[] = {
     0x0604BC80, // obj_s_kouban
     0x06012AD0, //
     0x06013A60, //
-    0x060556A0, //
+    0x060556A0, // obj_s_buildsite
     0x0606A560, //
     0x06000000, // obj_s_yamishop
     0x06003440, // obj_s_uranai
     0x06056180, //
     0x0601AA00, // obj_w_kamakura
     0x060149F0, // obj_e_goza
-    0x060542D0, //
+    0x060542D0, // obj_e_radio
     0x06092A90, //
     0x060880B8, //
     0x06085A40, //
