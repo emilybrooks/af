@@ -4,6 +4,11 @@
 #include "gbi.h"
 #include "c_keyframe.h"
 
+/**
+ * @file obj_s_shop2
+ * Nook 'n' Go (non winter)
+ */
+
 extern Vtx obj_s_shop2_v[];
 extern Gfx obj_s_shop2_window_model[];
 extern Gfx obj_s_shop2_t2_model[];

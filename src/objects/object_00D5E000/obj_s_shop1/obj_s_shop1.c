@@ -27,3 +27,4 @@ u8 obj_s_shop1_window_txt[] = {
 #include "assets/jp/objects/object_00D5E000/obj_s_shop1/cKF_c_obj_s_shop1_tbl.inc.c"
 #include "assets/jp/objects/object_00D5E000/obj_s_shop1/cKF_ds_obj_s_shop1_tbl.inc.c"
 #include "assets/jp/objects/object_00D5E000/obj_s_shop1/cKF_ba_r_obj_s_shop1.inc.c"
+s32 padDB8424[] = { 0x00000000, 0x00000000 };
