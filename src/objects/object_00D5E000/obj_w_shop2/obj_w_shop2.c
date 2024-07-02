@@ -27,3 +27,4 @@ u8 obj_w_shop2_t2_tex_txt[] = {
 #include "assets/jp/objects/object_00D5E000/obj_w_shop2/cKF_c_obj_w_shop2_tbl.inc.c"
 #include "assets/jp/objects/object_00D5E000/obj_w_shop2/cKF_ds_obj_w_shop2_tbl.inc.c"
 #include "assets/jp/objects/object_00D5E000/obj_w_shop2/cKF_ba_r_obj_w_shop2.inc.c"
+s32 padDBEE30[] = { 0x00000000, 0x00000000 };
