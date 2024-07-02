@@ -889,6 +889,25 @@ cKF_c_obj_s_shop1_tbl = 0x605A3C0; // segment:object_00D5E000 rom:0xDB83C0
 cKF_ds_obj_s_shop1_tbl = 0x605A3F0; // segment:object_00D5E000 rom:0xDB83F0
 cKF_ba_r_obj_s_shop1 = 0x605A410; // segment:object_00D5E000 rom:0xDB8410
 
+obj_w_shop1_v = 0x605A438; // segment:object_00D5E000 rom:0xDB8438 size:0x320
+obj_w_shop1_window_model = 0x605A758; // segment:object_00D5E000 rom:0xDB8758
+obj_w_shop1_light_model = 0x605A7F0; // segment:object_00D5E000 rom:0xDB87F0
+obj_w_shop1_side_model = 0x605A8B0; // segment:object_00D5E000 rom:0xDB88B0
+obj_w_shop1_roof_model = 0x605A950; // segment:object_00D5E000 rom:0xDB8950
+obj_w_shop1_front_model = 0x605A9F8; // segment:object_00D5E000 rom:0xDB89F8
+obj_w_shop1_door_model = 0x605AA90; // segment:object_00D5E000 rom:0xDB8A90
+obj_w_shop1_front_txt = 0x605AB18; // segment:object_00D5E000 rom:0xDB8B18
+obj_w_shop1_roof_txt = 0x605B318; // segment:object_00D5E000 rom:0xDB9318
+obj_w_shop1_side_txt = 0x605BB18; // segment:object_00D5E000 rom:0xDB9B18
+obj_w_shop1_window_txt = 0x605C318; // segment:object_00D5E000 rom:0xDBA318
+cKF_je_r_obj_w_shop1_tbl = 0x605C398; // segment:object_00D5E000 rom:0xDBA398
+cKF_bs_r_obj_w_shop1 = 0x605C3EC; // segment:object_00D5E000 rom:0xDBA3EC
+cKF_ckcb_r_obj_w_shop1_tbl = 0x605C3F4; // segment:object_00D5E000 rom:0xDBA3F4
+cKF_kn_obj_w_shop1_tbl = 0x605C3FC; // segment:object_00D5E000 rom:0xDBA3FC
+cKF_c_obj_w_shop1_tbl = 0x605C400; // segment:object_00D5E000 rom:0xDBA400
+cKF_ds_obj_w_shop1_tbl = 0x605C430; // segment:object_00D5E000 rom:0xDBA430
+cKF_ba_r_obj_w_shop1 = 0x605C450; // segment:object_00D5E000 rom:0xDBA450
+
 obj_s_toudai_v = 0x0607D248; // segment:object_00D5E000 rom:0xDDB248 size:0x990
 obj_s_toudai_mirror_model = 0x0607DBD8; // segment:object_00D5E000 rom:0xDDBBD8
 obj_s_toudai_glass_model = 0x0607DCA0; // segment:object_00D5E000 rom:0xDDBCA0

@@ -660,7 +660,8 @@
           - { start: 0xD5B908, type: af_palette, name: obj_w_myhome_k_pal, global_id: obj_w_myhome_k_pal }
           - { start: 0xD5B928, type: af_palette, name: obj_w_myhome_l_pal, global_id: obj_w_myhome_l_pal }
           - { start: 0xD5B948, type: af_palette, name: obj_shop1_pal, global_id: obj_shop1_pal }
-          - [0xD5B968]
+          - { start: 0xD5B968, type: af_palette, name: obj_shop1_winter_pal, global_id: obj_shop1_winter_pal }
+          - [0xD5B988]
           - { start: 0xD5BA48, type: af_palette, name: obj_s_yamishop_pal, global_id: obj_s_yamishop_pal }
           - { start: 0xD5BA68, type: af_palette, name: obj_w_yamishop_pal, global_id: obj_w_yamishop_pal }
           - { start: 0xD5BA88, type: af_palette, name: obj_s_post_office_pal, global_id: obj_s_post_office_pal }
@@ -2099,8 +2100,34 @@
           - [0xDB840E, pad]
           - [0xDB8410, ckf_ba, obj_s_shop1/cKF_ba_r_obj_s_shop1]
           - [0xDB8424]
+      - [auto, c, obj_w_shop1/obj_w_shop1]
+      - start: 0xDB8430
+        type: .data
+        name: obj_w_shop1/obj_w_shop1
+        subsegments:
           - [0xDB8430, pad]
-      - [0xDB8430, bin, 0D5E000_unextracted]
+          - [0xDB8438, vtx, obj_w_shop1/obj_w_shop1_v]
+          - [0xDB8758, af_gfx, obj_w_shop1/obj_w_shop1_window_model]
+          - [0xDB87F0, af_gfx, obj_w_shop1/obj_w_shop1_light_model]
+          - [0xDB88B0, af_gfx, obj_w_shop1/obj_w_shop1_side_model]
+          - [0xDB8950, af_gfx, obj_w_shop1/obj_w_shop1_roof_model]
+          - [0xDB89F8, af_gfx, obj_w_shop1/obj_w_shop1_front_model]
+          - [0xDB8A90, af_gfx, obj_w_shop1/obj_w_shop1_door_model]
+          - [0xDB8B18, ci4, obj_w_shop1/obj_w_shop1_front_txt, 128, 32, obj_shop1_winter_pal]
+          - [0xDB9318, ci4, obj_w_shop1/obj_w_shop1_roof_txt, 128, 32, obj_shop1_winter_pal]
+          - [0xDB9B18, ci4, obj_w_shop1/obj_w_shop1_side_txt, 128, 32, obj_shop1_winter_pal]
+          - [0xDBA318, i4, obj_w_shop1/obj_w_shop1_window_txt, 16, 16]
+          - [0xDBA398, ckf_je, obj_w_shop1/cKF_je_r_obj_w_shop1_tbl]
+          - [0xDBA3EC, ckf_bs, obj_w_shop1/cKF_bs_r_obj_w_shop1]
+          - [0xDBA3F4, ckf_ckcb, obj_w_shop1/cKF_ckcb_r_obj_w_shop1_tbl]
+          - [0xDBA3FC, ckf_kn, obj_w_shop1/cKF_kn_obj_w_shop1_tbl]
+          - [0xDBA400, ckf_c, obj_w_shop1/cKF_c_obj_w_shop1_tbl]
+          - [0xDBA430, ckf_ds, obj_w_shop1/cKF_ds_obj_w_shop1_tbl]
+          - [0xDBA44E, pad]
+          - [0xDBA450, ckf_ba, obj_w_shop1/cKF_ba_r_obj_w_shop1]
+          - [0xDBA464]
+          - [0xDBA470, pad]
+      - [0xDBA470, bin, 0D5E000_unextracted]
   - [0xDF3480]
 
   - name: object_00DF4000
