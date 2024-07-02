@@ -40,8 +40,8 @@ u32 StructurePaletteAddresses[] = {
     0x06000768, // obj_s_myhome_j_pal
     0x06000788, // obj_s_myhome_k_pal
     0x060007A8, // obj_s_myhome_l_pal
-    0x06000948, //
-    0x06000988, //
+    0x06000948, // obj_shop1_pal
+    0x06000988, // obj_shop2_pal
     0x060009C8, //
     0x06000A08, //
     0x06000A88, //
@@ -131,7 +131,7 @@ u32 StructurePaletteAddresses[] = {
     0x060008E8, // obj_w_myhome_j_pal
     0x06000908, // obj_w_myhome_k_pal
     0x06000928, // obj_w_myhome_l_pal
-    0x06000968, //
+    0x06000968, // obj_shop1_winter_pal
     0x060009A8, //
     0x060009E8, //
     0x06000A28, //

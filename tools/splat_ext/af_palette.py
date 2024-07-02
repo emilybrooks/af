@@ -10,12 +10,13 @@ class N64SegAf_palette(N64SegPalette):
 
     def scan(self, rom_bytes: bytes):
         data = rom_bytes[self.rom_start : self.rom_end]
+        symbol = self.create_symbol(addr=self.vram_start, in_segment=True, type="data", define=True)
         lines = []
 
         if not self.data_only:
             lines.append(options.opts.generated_c_preamble)
             lines.append("")
-            lines.append(f"u16 {self.name}[] = {{")
+            lines.append(f"u16 {symbol.name}[] = {{")
 
         for short in struct.iter_unpack(">H", data):
             lines.append(f"    0x{short[0]:04X},")
