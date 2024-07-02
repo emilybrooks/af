@@ -1,6 +1,5 @@
 #include "obj_s_shop3.h"
 
-
 #include "assets/jp/objects/object_00D5E000/obj_s_shop3/obj_s_shop3_v.vtx.inc.c"
 #include "assets/jp/objects/object_00D5E000/obj_s_shop3/obj_s_shop3_window_model.gfx.inc.c"
 #include "assets/jp/objects/object_00D5E000/obj_s_shop3/obj_s_shop3_t2_model.gfx.inc.c"
@@ -27,3 +26,4 @@ u8 obj_s_shop3_t3_tex_txt[] = {
 #include "assets/jp/objects/object_00D5E000/obj_s_shop3/cKF_c_obj_s_shop3_tbl.inc.c"
 #include "assets/jp/objects/object_00D5E000/obj_s_shop3/cKF_ds_obj_s_shop3_tbl.inc.c"
 #include "assets/jp/objects/object_00D5E000/obj_s_shop3/cKF_ba_r_obj_s_shop3.inc.c"
+s32 padDC13DC[] = { 0x00000000, 0x00000000 };
