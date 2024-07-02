@@ -43,7 +43,7 @@ u32 StructurePaletteAddresses[] = {
     0x06000948, // obj_shop1_pal
     0x06000988, // obj_shop2_pal
     0x060009C8, // obj_shop3_pal
-    0x06000A08, //
+    0x06000A08, // obj_shop4_pal
     0x06000A88, //
     0x06000AC8, //
     0x06000AE8, //

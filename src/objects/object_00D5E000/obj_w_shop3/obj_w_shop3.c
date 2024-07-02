@@ -26,3 +26,4 @@ u8 obj_w_shop3_t3_tex_txt[] = {
 #include "assets/jp/objects/object_00D5E000/obj_w_shop3/cKF_c_obj_w_shop3_tbl.inc.c"
 #include "assets/jp/objects/object_00D5E000/obj_w_shop3/cKF_ds_obj_w_shop3_tbl.inc.c"
 #include "assets/jp/objects/object_00D5E000/obj_w_shop3/cKF_ba_r_obj_w_shop3.inc.c"
+s32 padDC398C[] = { 0x00000000, 0x00000000 };
