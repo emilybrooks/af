@@ -25,7 +25,7 @@ u32 StructureObjectAddresses[] = {
     0x06012AD0, //
     0x06013A60, //
     0x060556A0, // obj_s_buildsite
-    0x0606A560, //
+    0x0606A560, // obj_s_shrine
     0x06000000, // obj_s_yamishop
     0x06003440, // obj_s_uranai
     0x06056180, //

@@ -1024,6 +1024,27 @@ cKF_c_obj_w_shop4_tbl = 0x606A480; // segment:object_00D5E000 rom:0xDC8480
 cKF_ds_obj_w_shop4_tbl = 0x606A4A0; // segment:object_00D5E000 rom:0xDC84A0
 cKF_ba_r_obj_w_shop4 = 0x606A538; // segment:object_00D5E000 rom:0xDC8538
 
+obj_s_shrine_v = 0x606A568; // segment:object_00D5E000 rom:0xDC8568 size:0xB90
+obj_s_shrine_light_model = 0x606B0F8; // segment:object_00D5E000 rom:0xDC90F8
+obj_s_shrine_t3_model = 0x606B138; // segment:object_00D5E000 rom:0xDC9138
+obj_s_shrine_t2_model = 0x606B250; // segment:object_00D5E000 rom:0xDC9250
+obj_s_shrine_t1_model = 0x606B350; // segment:object_00D5E000 rom:0xDC9350
+obj_s_shrine_leaf_gfx_model = 0x606B470; // segment:object_00D5E000 rom:0xDC9470
+obj_s_shrine_leaf_model = 0x606B4D0; // segment:object_00D5E000 rom:0xDC94D0
+obj_s_shrine_rope1_model = 0x606B4D8; // segment:object_00D5E000 rom:0xDC94D8
+obj_s_shrine_rope2_model = 0x606B568; // segment:object_00D5E000 rom:0xDC9568
+obj_s_shrine_bell_model = 0x606B630; // segment:object_00D5E000 rom:0xDC9630
+obj_s_shrine_t2_tex_txt = 0x606B6C0; // segment:object_00D5E000 rom:0xDC96C0
+obj_s_shrine_t1_tex_txt = 0x606BEC0; // segment:object_00D5E000 rom:0xDC9EC0
+obj_s_shrine_t3_tex_txt = 0x606C6C0; // segment:object_00D5E000 rom:0xDCA6C0
+cKF_je_r_obj_s_shrine_tbl = 0x606CEC0; // segment:object_00D5E000 rom:0xDCAEC0
+cKF_bs_r_obj_s_shrine = 0x606CF38; // segment:object_00D5E000 rom:0xDCAF38
+cKF_ckcb_r_obj_s_shrine_tbl = 0x606CF40; // segment:object_00D5E000 rom:0xDCAF40
+cKF_kn_obj_s_shrine_tbl = 0x606CF4C; // segment:object_00D5E000 rom:0xDCAF4C
+cKF_c_obj_s_shrine_tbl = 0x606CF54; // segment:object_00D5E000 rom:0xDCAF54
+cKF_ds_obj_s_shrine_tbl = 0x606CF90; // segment:object_00D5E000 rom:0xDCAF90
+cKF_ba_r_obj_s_shrine = 0x606D1C4; // segment:object_00D5E000 rom:0xDCB1C4
+
 obj_s_toudai_v = 0x0607D248; // segment:object_00D5E000 rom:0xDDB248 size:0x990
 obj_s_toudai_mirror_model = 0x0607DBD8; // segment:object_00D5E000 rom:0xDDBBD8
 obj_s_toudai_glass_model = 0x0607DCA0; // segment:object_00D5E000 rom:0xDDBCA0
