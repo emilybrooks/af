@@ -1045,6 +1045,27 @@ cKF_c_obj_s_shrine_tbl = 0x606CF54; // segment:object_00D5E000 rom:0xDCAF54
 cKF_ds_obj_s_shrine_tbl = 0x606CF90; // segment:object_00D5E000 rom:0xDCAF90
 cKF_ba_r_obj_s_shrine = 0x606D1C4; // segment:object_00D5E000 rom:0xDCB1C4
 
+obj_w_shrine_v = 0x606D1E8; // segment:object_00D5E000 rom:0xDCB1E8 size:0xB90
+obj_w_shrine_light_model = 0x606DD78; // segment:object_00D5E000 rom:0xDCBD78
+obj_w_shrine_t3_model = 0x606DDB8; // segment:object_00D5E000 rom:0xDCBDB8
+obj_w_shrine_t2_model = 0x606DED0; // segment:object_00D5E000 rom:0xDCBED0
+obj_w_shrine_t1_model = 0x606DFD0; // segment:object_00D5E000 rom:0xDCBFD0
+obj_w_shrine_leaf_gfx_model = 0x606E0F0; // segment:object_00D5E000 rom:0xDCC0F0
+obj_w_shrine_leaf_model = 0x606E150; // segment:object_00D5E000 rom:0xDCC150
+obj_w_shrine_rope1_model = 0x606E158; // segment:object_00D5E000 rom:0xDCC158
+obj_w_shrine_rope2_model = 0x606E1E8; // segment:object_00D5E000 rom:0xDCC1E8
+obj_w_shrine_bell_model = 0x606E2B0; // segment:object_00D5E000 rom:0xDCC2B0
+obj_w_shrine_t2_tex_txt = 0x606E348; // segment:object_00D5E000 rom:0xDCC348
+obj_w_shrine_t1_tex_txt = 0x606EB48; // segment:object_00D5E000 rom:0xDCCB48
+obj_w_shrine_t3_tex_txt = 0x606F348; // segment:object_00D5E000 rom:0xDCD348
+cKF_je_r_obj_w_shrine_tbl = 0x606FB48; // segment:object_00D5E000 rom:0xDCDB48
+cKF_bs_r_obj_w_shrine = 0x606FBC0; // segment:object_00D5E000 rom:0xDCDBC0
+cKF_ckcb_r_obj_w_shrine_tbl = 0x606FBC8; // segment:object_00D5E000 rom:0xDCDBC8
+cKF_kn_obj_w_shrine_tbl = 0x606FBD4; // segment:object_00D5E000 rom:0xDCDBD4
+cKF_c_obj_w_shrine_tbl = 0x606FBDC; // segment:object_00D5E000 rom:0xDCDBDC
+cKF_ds_obj_w_shrine_tbl = 0x606FC18; // segment:object_00D5E000 rom:0xDCDC18
+cKF_ba_r_obj_w_shrine = 0x606FE4C; // segment:object_00D5E000 rom:0xDCDE4C
+
 obj_s_toudai_v = 0x0607D248; // segment:object_00D5E000 rom:0xDDB248 size:0x990
 obj_s_toudai_mirror_model = 0x0607DBD8; // segment:object_00D5E000 rom:0xDDBBD8
 obj_s_toudai_glass_model = 0x0607DCA0; // segment:object_00D5E000 rom:0xDDBCA0

@@ -681,7 +681,7 @@
           - { start: 0xD5BFC8, type: af_palette, name: s_car_pal, global_id: s_car_pal }
           - { start: 0xD5BFE8, type: af_palette, name: obj_w_kamakura_pal, global_id: obj_w_kamakura_pal }
           - { start: 0xD5C008, type: af_palette, name: obj_s_shrine_pal, global_id: obj_s_shrine_pal }
-          - [0xD5C028]
+          - { start: 0xD5C028, type: af_palette, name: obj_w_shrine_pal, global_id: obj_w_shrine_pal }
           - { start: 0xD5C048, type: af_palette, name: obj_e_goza_pal, global_id: obj_e_goza_pal }
           - { start: 0xD5C068, type: af_palette, name: obj_e_radio_pal, global_id: obj_e_radio_pal }
           - [0xD5C088]
@@ -2313,7 +2313,34 @@
           - [0xDCAF90, ckf_ds, obj_s_shrine/cKF_ds_obj_s_shrine_tbl]
           - [0xDCB1C4, ckf_ba, obj_s_shrine/cKF_ba_r_obj_s_shrine]
           - [0xDCB1D8]
-      - [0xDCB1E0, bin, 0D5E000_unextracted]
+      - [auto, c, obj_w_shrine/obj_w_shrine]
+      - start: 0xDCB1E0
+        type: .data
+        name: obj_w_shrine/obj_w_shrine
+        subsegments:
+          - [0xDCB1E0, pad]
+          - [0xDCB1E8, vtx, obj_w_shrine/obj_w_shrine_v]
+          - [0xDCBD78, af_gfx, obj_w_shrine/obj_w_shrine_light_model]
+          - [0xDCBDB8, af_gfx, obj_w_shrine/obj_w_shrine_t3_model]
+          - [0xDCBED0, af_gfx, obj_w_shrine/obj_w_shrine_t2_model]
+          - [0xDCBFD0, af_gfx, obj_w_shrine/obj_w_shrine_t1_model]
+          - [0xDCC0F0, af_gfx, obj_w_shrine/obj_w_shrine_leaf_gfx_model]
+          - [0xDCC150, af_gfx, obj_w_shrine/obj_w_shrine_leaf_model]
+          - [0xDCC158, af_gfx, obj_w_shrine/obj_w_shrine_rope1_model]
+          - [0xDCC1E8, af_gfx, obj_w_shrine/obj_w_shrine_rope2_model]
+          - [0xDCC2B0, af_gfx, obj_w_shrine/obj_w_shrine_bell_model]
+          - [0xDCC348, ci4, obj_w_shrine/obj_w_shrine_t2_tex_txt, 64, 64, obj_w_shrine_pal]
+          - [0xDCCB48, ci4, obj_w_shrine/obj_w_shrine_t1_tex_txt, 64, 64, obj_w_shrine_pal]
+          - [0xDCD348, ci4, obj_w_shrine/obj_w_shrine_t3_tex_txt, 128, 32, obj_w_shrine_pal]
+          - [0xDCDB48, ckf_je, obj_w_shrine/cKF_je_r_obj_w_shrine_tbl]
+          - [0xDCDBC0, ckf_bs, obj_w_shrine/cKF_bs_r_obj_w_shrine]
+          - [0xDCDBC8, ckf_ckcb, obj_w_shrine/cKF_ckcb_r_obj_w_shrine_tbl]
+          - [0xDCDBD4, ckf_kn, obj_w_shrine/cKF_kn_obj_w_shrine_tbl]
+          - [0xDCDBDC, ckf_c, obj_w_shrine/cKF_c_obj_w_shrine_tbl]
+          - [0xDCDC18, ckf_ds, obj_w_shrine/cKF_ds_obj_w_shrine_tbl]
+          - [0xDCDE4C, ckf_ba, obj_w_shrine/cKF_ba_r_obj_w_shrine]
+          - [0xDCDE60]
+      - [0xDCDE60, bin, 0D5E000_unextracted]
   - [0xDF3480]
 
   - name: object_00DF4000

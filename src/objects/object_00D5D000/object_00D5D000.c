@@ -157,7 +157,7 @@ u32 StructurePaletteAddresses[] = {
     0x06000008, //
     0x06000008, //
     0x06000F68, //
-    0x06001028, //
+    0x06001028, // obj_w_shrine_pal
     0x06000A68, // obj_w_yamishop_pal
     0x06000FA8, // obj_buggy_winter_pal
     0x06000FC8, //
