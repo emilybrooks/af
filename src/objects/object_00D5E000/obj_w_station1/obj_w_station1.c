@@ -21,3 +21,4 @@ u8 obj_w_station1_t1_tex_txt[] = {
 #include "assets/jp/objects/object_00D5E000/obj_w_station1/cKF_ckcb_r_obj_w_station1_tbl.inc.c"
 #include "assets/jp/objects/object_00D5E000/obj_w_station1/cKF_c_obj_w_station1_tbl.inc.c"
 #include "assets/jp/objects/object_00D5E000/obj_w_station1/cKF_ba_r_obj_w_station1.inc.c"
+s32 padDD2690[] = { 0x00000000, 0x00000000 };

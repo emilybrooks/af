@@ -681,7 +681,12 @@
           - { start: 0xD5BBA8, type: af_palette, name: obj_w_station1_c_pal, global_id: obj_w_station1_c_pal }
           - { start: 0xD5BBC8, type: af_palette, name: obj_w_station1_d_pal, global_id: obj_w_station1_d_pal }
           - { start: 0xD5BBE8, type: af_palette, name: obj_w_station1_e_pal, global_id: obj_w_station1_e_pal }
-          - [0xD5BC08]
+          - { start: 0xD5BC08, type: af_palette, name: obj_s_station2_a_pal, global_id: obj_s_station2_a_pal }
+          - { start: 0xD5BC28, type: af_palette, name: obj_s_station2_b_pal, global_id: obj_s_station2_b_pal }
+          - { start: 0xD5BC48, type: af_palette, name: obj_s_station2_c_pal, global_id: obj_s_station2_c_pal }
+          - { start: 0xD5BC68, type: af_palette, name: obj_s_station2_d_pal, global_id: obj_s_station2_d_pal }
+          - { start: 0xD5BC88, type: af_palette, name: obj_s_station2_e_pal, global_id: obj_s_station2_e_pal }
+          - [0xD5BCA8]
           - { start: 0xD5BF08, type: af_palette, name: obj_police_box_pal, global_id: obj_police_box_pal }
           - { start: 0xD5BF28, type: af_palette, name: obj_police_box_winter_pal, global_id: obj_police_box_winter_pal }
           - { start: 0xD5BF48, type: af_palette, name: reserve_pal, global_id: reserve_pal }
@@ -2422,7 +2427,43 @@
           - [0xDD264C, ckf_c, obj_w_station1/cKF_c_obj_w_station1_tbl]
           - [0xDD267C, ckf_ba, obj_w_station1/cKF_ba_r_obj_w_station1]
           - [0xDD2690]
-      - [0xDD2690, bin, 0D5E000_unextracted]
+      - [auto, c, obj_s_station2/obj_s_station2]
+      - start: 0xDD2698
+        type: .data
+        name: obj_s_station2/obj_s_station2
+        subsegments:
+          - [0xDD2698, pad]
+          - [0xDD26A0, vtx, obj_s_station2/obj_s_station2_v]
+          - [0xDD2DB0, af_gfx, obj_s_station2/obj_s_station2_t3_model]
+          - [0xDD2E70, af_gfx, obj_s_station2/obj_s_station2_t2_2_model]
+          - [0xDD2F18, af_gfx, obj_s_station2/obj_s_station2_t1_1_model]
+          - [0xDD3020, af_gfx, obj_s_station2/obj_s_station2_short_model]
+          - [0xDD30A8, af_gfx, obj_s_station2/obj_s_station2_long_model]
+          - start: 0xDD3130
+            type: ci4
+            name: obj_s_station2/obj_s_station2_t3_tex_txt
+            width: 128
+            height: 32
+            palettes: [obj_s_station2_a_pal, obj_s_station2_b_pal, obj_s_station2_c_pal, obj_s_station2_d_pal, obj_s_station2_e_pal]
+          - start: 0xDD3930
+            type: ci4
+            name: obj_s_station2/obj_s_station2_t2_tex_txt
+            width: 128
+            height: 32
+            palettes: [obj_s_station2_a_pal, obj_s_station2_b_pal, obj_s_station2_c_pal, obj_s_station2_d_pal, obj_s_station2_e_pal]
+          - start: 0xDD4130
+            type: ci4
+            name: obj_s_station2/obj_s_station2_t1_tex_txt
+            width: 128
+            height: 32
+            palettes: [obj_s_station2_a_pal, obj_s_station2_b_pal, obj_s_station2_c_pal, obj_s_station2_d_pal, obj_s_station2_e_pal]
+          - [0xDD4930, ckf_je, obj_s_station2/cKF_je_r_obj_s_station2_tbl]
+          - [0xDD4984, ckf_bs, obj_s_station2/cKF_bs_r_obj_s_station2]
+          - [0xDD498C, ckf_ckcb, obj_s_station2/cKF_ckcb_r_obj_s_station2_tbl]
+          - [0xDD4994, ckf_c, obj_s_station2/cKF_c_obj_s_station2_tbl]
+          - [0xDD49C4, ckf_ba, obj_s_station2/cKF_ba_r_obj_s_station2]
+          - [0xDD49D8]
+      - [0xDD49E0, bin, 0D5E000_unextracted]
   - [0xDF3480]
 
   - name: object_00DF4000
