@@ -44,22 +44,22 @@ u32 StructurePaletteAddresses[] = {
     0x06000988, // obj_shop2_pal
     0x060009C8, // obj_shop3_pal
     0x06000A08, // obj_shop4_pal
-    0x06000A88, //
-    0x06000AC8, //
-    0x06000AE8, //
-    0x06000B08, //
-    0x06000B28, //
-    0x06000B48, //
-    0x06000C08, //
-    0x06000C28, //
-    0x06000C48, //
-    0x06000C68, //
-    0x06000C88, //
-    0x06000D48, //
-    0x06000D68, //
-    0x06000D88, //
-    0x06000DA8, //
-    0x06000DC8, //
+    0x06000A88, // obj_s_post_office_pal
+    0x06000AC8, // obj_s_station1_a_pal
+    0x06000AE8, // obj_s_station1_b_pal
+    0x06000B08, // obj_s_station1_c_pal
+    0x06000B28, // obj_s_station1_d_pal
+    0x06000B48, // obj_s_station1_e_pal
+    0x06000C08, // obj_s_station2_a_pal
+    0x06000C28, // obj_s_station2_b_pal
+    0x06000C48, // obj_s_station2_c_pal
+    0x06000C68, // obj_s_station2_d_pal
+    0x06000C88, // obj_s_station2_e_pal
+    0x06000D48, // obj_s_station3_a_pal
+    0x06000D68, // obj_s_station3_b_pal
+    0x06000D88, // obj_s_station3_c_pal
+    0x06000DA8, // obj_s_station3_d_pal
+    0x06000DC8, // obj_s_station3_e_pal
     0x06000E88, //
     0x06000EC8, //
     0x06000F08, // obj_police_box_pal
@@ -135,22 +135,22 @@ u32 StructurePaletteAddresses[] = {
     0x060009A8, // obj_shop2_winter_pal
     0x060009E8, // obj_shop3_winter_pal
     0x06000A28, // obj_shop4_winter_pal
-    0x06000AA8, //
-    0x06000B68, //
-    0x06000B88, //
-    0x06000BA8, //
-    0x06000BC8, //
-    0x06000BE8, //
-    0x06000CA8, //
-    0x06000CE8, //
-    0x06000D08, //
-    0x06000CC8, //
-    0x06000D28, //
-    0x06000DE8, //
-    0x06000E28, //
-    0x06000E48, //
-    0x06000E08, //
-    0x06000E68, //
+    0x06000AA8, // obj_s_post_office_winter_pal
+    0x06000B68, // obj_w_station1_a_pal
+    0x06000B88, // obj_w_station1_b_pal
+    0x06000BA8, // obj_w_station1_c_pal
+    0x06000BC8, // obj_w_station1_d_pal
+    0x06000BE8, // obj_w_station1_e_pal
+    0x06000CA8, // obj_w_station2_a_pal
+    0x06000CE8, // obj_w_station2_b_pal
+    0x06000D08, // obj_w_station2_c_pal
+    0x06000CC8, // obj_w_station2_d_pal
+    0x06000D28, // obj_w_station2_e_pal
+    0x06000DE8, // obj_w_station3_a_pal
+    0x06000E28, // obj_w_station3_b_pal
+    0x06000E48, // obj_w_station3_c_pal
+    0x06000E08, // obj_w_station3_d_pal
+    0x06000E68, // obj_w_station3_e_pal
     0x06000EA8, //
     0x06000EE8, //
     0x06000F28, // obj_police_box_winter_pal
