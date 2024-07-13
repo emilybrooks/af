@@ -20,3 +20,4 @@ u8 obj_s_station3_t2_tex_txt[] = {
 #include "assets/jp/objects/object_00D5E000/obj_s_station3/cKF_ckcb_r_obj_s_station3_tbl.inc.c"
 #include "assets/jp/objects/object_00D5E000/obj_s_station3/cKF_c_obj_s_station3_tbl.inc.c"
 #include "assets/jp/objects/object_00D5E000/obj_s_station3/cKF_ba_r_obj_s_station3.inc.c"
+s32 padDD8FB0[] = { 0x00000000, 0x00000000 };
