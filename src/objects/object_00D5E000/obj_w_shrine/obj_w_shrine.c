@@ -27,3 +27,4 @@ u8 obj_w_shrine_t3_tex_txt[] = {
 #include "assets/jp/objects/object_00D5E000/obj_w_shrine/cKF_c_obj_w_shrine_tbl.inc.c"
 #include "assets/jp/objects/object_00D5E000/obj_w_shrine/cKF_ds_obj_w_shrine_tbl.inc.c"
 #include "assets/jp/objects/object_00D5E000/obj_w_shrine/cKF_ba_r_obj_w_shrine.inc.c"
+s32 padDCDE60[] = { 0x00000000, 0x00000000 };
