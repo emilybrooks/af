@@ -9,7 +9,7 @@ extern Gfx obj_w_station2_t3_model[];
 extern Gfx obj_w_station2_t2_1_model[];
 extern Gfx obj_w_station2_t1_model[];
 extern Gfx obj_w_station2_short_model[];
-extern Gfx obj_w_station2_long_model[];
+extern Gfx obj_w_ststion2_long_model[];
 extern u8 obj_w_station2_t3_tex_txt[];
 extern u8 obj_w_station2_t2_tex_txt[];
 extern u8 obj_w_station2_t1_tex_txt[];
